@@ -1,0 +1,38 @@
+#!/usr/bin/env php
+<?php
+
+use Learn\Foundation\Application;
+
+/*
+|--------------------------------------------------------------------------
+| Load the base configuration file
+|--------------------------------------------------------------------------
+|
+| Before running the program, we need to configure some global parameters,
+| which can be reflected in the basic configuration file.
+|
+*/
+
+if (!is_file($baseFile = realpath($raw = __DIR__ . '/include/base.php') ?: $raw)) {
+    exit(sprintf('Unable to load the requested file:"%s" .', $baseFile));
+}
+require $baseFile;
+
+/*
+|--------------------------------------------------------------------------
+| Run The Artisan Application
+|--------------------------------------------------------------------------
+|
+| When we run the console application, the current CLI command will be
+| executed in this console and the response sent back to a terminal
+| or another output device for the developers. Here goes nothing!
+|
+*/
+
+return Application::runArtisan();
+
+/*
+|--------------------------------------------------------------------------
+| The End
+|--------------------------------------------------------------------------
+*/
